@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# gentoo-cleaner-0.0.1.2-r1
+# gentoo-cleaner-0.0.1.2-r2
 PWD_DIR="$(whereis gentoo-cleaner.sh | awk '{print $2}' | sed "s/\/gentoo-cleaner.sh//g")"
 
 # User exceptions:
@@ -16,18 +16,19 @@ fi
 
 # Exclude paths (system)
 EXCLUDE_PATH="
-/etc/local.d/
-/etc/portage/
-/etc/runlevels/
-/usr/local/
-/usr/portage/
-/usr/src/
+/etc/local.d
+/etc/portage
+/etc/runlevels
+/usr/local
+/usr/portage
+/usr/src
+/usr/tmp
 "
 if [ "$(uname -m)" != "x86_64" ]
 then
-    EXCLUDE_PATH+="/lib/modules/"
+    EXCLUDE_PATH+="/lib/modules"
 else
-    EXCLUDE_PATH+="/lib64/modules/"
+    EXCLUDE_PATH+="/lib64/modules"
 fi
 
 # Exceptions paths (users)
@@ -89,7 +90,7 @@ done
 fi
 
 # Sorting, writing to temp file
-eval "$TMP_SORT" | sort -u > $TMP_SYSTEM_FILES_SORT
+eval "$TMP_SORT" | sed "s/\/$//g" | sort -u > $TMP_SYSTEM_FILES_SORT
 
 # Writing result to file (diff between system and packages filelist)
 diff "$TMP_SYSTEM_FILES_SORT" "$TMP_PACKAGE_FILES_RESULT" | grep "^<" | sed "s/^< //g" > "$TMP_RESULT"
