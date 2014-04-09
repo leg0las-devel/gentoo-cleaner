@@ -4,7 +4,7 @@
 PWD_DIR="$(whereis gentoo-cleaner.sh | awk '{print $2}' | sed "s/\/gentoo-cleaner.sh//g")"
 
 # User exceptions:
-EXCLUDE_CONF="$PWD_DIR/user-excludes.conf"
+EXCLUDE_CONF="$PWD_DIR/user-exeptions.conf"
 
 # Paths for find system files
 if [ "$(uname -m)" != "x86_64" ]
