@@ -21,6 +21,7 @@ EXCLUDE_PATH="
 /etc/runlevels
 /usr/local
 /usr/portage
+/usr/share/mime
 /usr/src
 /usr/tmp
 "
