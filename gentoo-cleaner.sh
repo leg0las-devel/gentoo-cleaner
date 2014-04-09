@@ -1,6 +1,6 @@
-#!/bin/bash                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                       
-# gentoo-cleaner-0.0.1.2                                                                                                                                                                                                               
+#!/bin/bash
+
+# gentoo-cleaner-0.0.1.2
 PWD_DIR="$(whereis gentoo-cleaner.sh | awk '{print $2}' | sed "s/\/gentoo-cleaner.sh//g")"
 
 # User exceptions:
