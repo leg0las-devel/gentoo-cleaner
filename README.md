@@ -1,4 +1,4 @@
-Script finds the garbage in the system and write results to log.
+Script finds garbage in the system and write results to log.
 
 Files:
 
