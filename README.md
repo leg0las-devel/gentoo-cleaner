@@ -5,13 +5,10 @@ For exceptions, use file "user-excludes.conf"
 Files:
 
 gentoo-cleaner.sh
-
 user-excludes.conf
 
-log files (created after running script):
+log files (created while running script):
 
 garbage_symlinks.log
-
 garbage_files.log
-
 garbage_all.log
