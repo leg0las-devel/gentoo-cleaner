@@ -86,9 +86,12 @@ for E in $EXCLUDE_PATH ; do
 done
 
 # Add users exceptions
+if [ "$USER_EXCLUDE_PATH" != "" ]
+then
 for E in $USER_EXCLUDE_PATH ; do
     TMP_SORT="$TMP_SORT | grep -v \"^$E\""
 done
+fi
 
 # Sorting, writing to temp file
 eval "$TMP_SORT" | sort -u > $TMP_SYSTEM_FILES_SORT
