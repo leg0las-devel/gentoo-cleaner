@@ -12,8 +12,8 @@ user-excludes.conf
 
 log files (created while running script):
 
-garbage_symlinks.log
+/var/log/garbage_symlinks.log
 
-garbage_files.log
+/var/log/garbage_files.log
 
-garbage_all.log
+/var/log/garbage_all.log
