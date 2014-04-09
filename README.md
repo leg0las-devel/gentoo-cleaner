@@ -1,7 +1,17 @@
-Script finds garbage in the system and write results to log.
+Script finds garbage in the system and write results to log (v. 0.0.1.2).
+
+For exceptions, use file "user-excludes.conf"
 
 Files:
 
 gentoo-cleaner.sh
 
-/var/log/garbage.sh (created after running script)
+user-excludes.conf
+
+log files (created after running script):
+
+garbage_symlinks.log
+
+garbage_files.log
+
+garbage_all.log
