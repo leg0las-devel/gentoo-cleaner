@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# gentoo-cleaner-0.0.1.2
+# gentoo-cleaner-0.0.1.2-r1
 PWD_DIR="$(whereis gentoo-cleaner.sh | awk '{print $2}' | sed "s/\/gentoo-cleaner.sh//g")"
 
 # User exceptions:
@@ -36,45 +36,26 @@ USER_EXCLUDE_PATH="$(cat $EXCLUDE_CONF | grep "^/")"
 # Temporarity files and directories
 TMP_DIR="/tmp/garbage"
 LOG_DIR="/var/log"
-TMP_PACKAGE_FILES="package_files"
-TMP_PACKAGE_FILES_SORT="package_files_sort"
+TMP_PACKAGE_FILES="$TMP_DIR/package_files"
+TMP_PACKAGE_FILES_SORT="$TMP_DIR/package_files_sort"
 if [ "$(uname -m)" = "x86_64" ]
 then
-TMP_PACKAGE_FILES_SORT_LIB64="package_files_sort_lib64"
-TMP_PACKAGE_FILES_SORT_LIB64_USR_LIB64="package_files_sort_lib64_usr_lib64"
+TMP_PACKAGE_FILES_SORT_LIB64="$TMP_DIR/package_files_sort_lib64"
+TMP_PACKAGE_FILES_SORT_LIB64_USR_LIB64="$TMP_DIR/package_files_sort_lib64_usr_lib64"
 fi
-TMP_PACKAGE_FILES_RESULT="package_files_result"
-TMP_SYSTEM_FILES="system_files"
-TMP_SYSTEM_FILES_SORT="system_files_sort"
-TMP_RESULT="garbage"
-TMP_SYMLINKS="symlinks"
-TMP_SYMLINKS_SORT="symlinks_sort"
-TMP_BROKEN_SYMLINKS="garbage_symlinks"
-LOG_BROKEN_SYMLINKS="garbage_symlinks.log"
-LOG_FILES="garbage_files.log"
-LOG_ALL="garbage_all.log"
+TMP_PACKAGE_FILES_RESULT="$TMP_DIR/package_files_result"
+TMP_SYSTEM_FILES="$TMP_DIR/system_files"
+TMP_SYSTEM_FILES_SORT="$TMP_DIR/system_files_sort"
+TMP_RESULT="$TMP_DIR/garbage"
+TMP_SYMLINKS="$TMP_DIR/symlinks"
+TMP_SYMLINKS_SORT="$TMP_DIR/symlinks_sort"
+TMP_BROKEN_SYMLINKS="$TMP_DIR/garbage_symlinks"
+LOG_BROKEN_SYMLINKS="$LOG_DIR/garbage_symlinks.log"
+LOG_FILES="$LOG_DIR/garbage_files.log"
+LOG_ALL="$LOG_DIR/garbage_all.log"
 
 # Creating temp directory
 mkdir "${TMP_DIR}"
-
-# Paths
-TMP_PACKAGE_FILES="$TMP_DIR/$TMP_PACKAGE_FILES"
-TMP_PACKAGE_FILES_SORT="$TMP_DIR/$TMP_PACKAGE_FILES_SORT"
-if [ "$(uname -m)" = "x86_64" ]
-then
-TMP_PACKAGE_FILES_SORT_LIB64="$TMP_DIR/$TMP_PACKAGE_FILES_SORT_LIB64"
-TMP_PACKAGE_FILES_SORT_LIB64_USR_LIB64="$TMP_DIR/$TMP_PACKAGE_FILES_SORT_LIB64_USR_LIB64"
-fi
-TMP_PACKAGE_FILES_RESULT="$TMP_DIR/$TMP_PACKAGE_FILES_RESULT"
-TMP_SYSTEM_FILES="$TMP_DIR/$TMP_SYSTEM_FILES"
-TMP_SYSTEM_FILES_SORT="$TMP_DIR/$TMP_SYSTEM_FILES_SORT"
-TMP_RESULT="$TMP_DIR/$TMP_RESULT"
-TMP_SYMLINKS="$TMP_DIR/$TMP_SYMLINKS"
-TMP_SYMLINKS_SORT="$TMP_DIR/$TMP_SYMLINKS_SORT"
-TMP_BROKEN_SYMLINKS="$TMP_DIR/$TMP_BROKEN_SYMLINKS"
-LOG_BROKEN_SYMLINKS="$LOG_DIR/$LOG_BROKEN_SYMLINKS"
-LOG_FILES="$LOG_DIR/$LOG_FILES"
-LOG_ALL="$LOG_DIR/$LOG_ALL"
 
 # Creating filelist for packages
 find /var/db/pkg/ -name CONTENTS -exec cat {} \; >> "$TMP_PACKAGE_FILES"
