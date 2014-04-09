@@ -4,4 +4,4 @@ Files:
 
 gentoo-cleaner.sh
 
-/var/log/garbage.sh (created after runing script)
+/var/log/garbage.sh (created after running script)
