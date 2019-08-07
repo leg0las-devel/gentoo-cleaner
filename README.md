@@ -1,4 +1,4 @@
-Script finds garbage in the system and write results to log (v. 0.0.1.2).
+Script finds garbage in the system and write results to log (v. 0.0.2).
 
 For exceptions, use file "user-exeptions.conf"
 
